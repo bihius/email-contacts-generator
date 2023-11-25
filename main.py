@@ -21,7 +21,7 @@ SERVER = os.getenv("SERVER") or config.SERVER
 PORT = int(os.getenv("PORT") or config.PORT)  
 EMAIL_USER = os.getenv("EMAIL_USER") or config.EMAIL_USER
 EMAIL_PASS = os.getenv("EMAIL_PASS") or config.EMAIL_PASS
-CSV_FILENAME = "contacts.csv"  
+CSV_FILENAME = config.CSV_FILENAME 
 
 # constants
 MAX_PROCESSED_MESSAGES = 10
