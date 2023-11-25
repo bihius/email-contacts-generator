@@ -94,7 +94,7 @@ try:
                         all_addresses.add((from_name, from_address.strip()))
 
                         # limit processing count to 10 messages, for testing purposes only
-                        processed_messages += 1
+                        # processed_messages += 1
 
                     except Exception as e:
                         print(f"Error processing message {mail_id}: {e}")
