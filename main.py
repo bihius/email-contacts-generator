@@ -12,7 +12,16 @@ from email.utils import parseaddr
 import csv
 from tqdm import tqdm
 import re
-from config import *
+import os
+import config 
+from dotenv import load_dotenv # load environment variables from .env file for testing purposes
+
+load_dotenv()
+SERVER = os.getenv("SERVER") or config.SERVER
+PORT = int(os.getenv("PORT") or config.PORT)  
+EMAIL_USER = os.getenv("EMAIL_USER") or config.EMAIL_USER
+EMAIL_PASS = os.getenv("EMAIL_PASS") or config.EMAIL_PASS
+CSV_FILENAME = "contacts.csv"  
 
 # constants
 MAX_PROCESSED_MESSAGES = 10
@@ -85,7 +94,7 @@ try:
                         all_addresses.add((from_name, from_address.strip()))
 
                         # limit processing count to 10 messages, for testing purposes only
-                        # processed_messages += 1
+                        processed_messages += 1
 
                     except Exception as e:
                         print(f"Error processing message {mail_id}: {e}")
